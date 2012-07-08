@@ -354,7 +354,6 @@ libc_common_src_files += \
 	arch-arm/bionic/memcmp16.S \
 	arch-arm/bionic/setjmp.S \
 	arch-arm/bionic/sigsetjmp.S \
-	arch-arm/bionic/strcpy.S \
 	arch-arm/bionic/strcmp.S \
 	arch-arm/bionic/syscall.S \
 	string/strncmp.c \
@@ -405,6 +404,7 @@ libc_common_src_files += \
 	arch-arm/bionic/armv7/memset.S \
 	arch-arm/bionic/armv7/bzero.S \
 	arch-arm/bionic/armv7/strchr.S \
+	arch-arm/bionic/armv7/strcpy.c \
 	arch-arm/bionic/armv7/strlen.S
 else
 libc_common_src_files += \
@@ -412,6 +412,7 @@ libc_common_src_files += \
 	arch-arm/bionic/memcpy.S \
 	arch-arm/bionic/memset.S \
 	string/strchr.c \
+	arch-arm/bionic/strcpy.S \
 	arch-arm/bionic/strlen.c.arm
 endif
 
