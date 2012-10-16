@@ -410,35 +410,20 @@ TARGET_USE_LINARO_STRING_ROUTINES ?= false
 ifeq ($(TARGET_USE_LINARO_STRING_ROUTINES)-$(ARCH_ARM_HAVE_ARMV7A),true-true)
 libc_common_src_files += \
 	arch-arm/bionic/armv7/memchr.S \
+	arch-arm/bionic/armv7/memcpy.S \
+	arch-arm/bionic/armv7/memset.S \
+	arch-arm/bionic/armv7/bzero.S \
 	arch-arm/bionic/armv7/strchr.S \
 	arch-arm/bionic/armv7/strcpy.c \
 	arch-arm/bionic/armv7/strlen.S
 else
 libc_common_src_files += \
 	string/memchr.c \
+	arch-arm/bionic/memcpy.S \
+	arch-arm/bionic/memset.S \
 	string/strchr.c \
 	arch-arm/bionic/strcpy.S \
 	arch-arm/bionic/strlen.c.arm
-endif
-
-# Don't override Qcom optimizations with linaro
-ifeq ($(TARGET_USE_SCORPION_BIONIC_OPTIMIZATION),true)
-libc_common_src_files += \
-	arch-arm/bionic/memcpy.S \
-	arch-arm/bionic/memset.S
-else ifeq ($(TARGET_USE_KRAIT_BIONIC_OPTIMIZATION),true)
-libc_common_src_files += \
-	arch-arm/bionic/memcpy.S \
-	arch-arm/bionic/memset.S
-else ifeq ($(TARGET_USE_LINARO_STRING_ROUTINES)-$(ARCH_ARM_HAVE_ARMV7A),true-true)
-libc_common_src_files += \
-	arch-arm/bionic/armv7/memcpy.S \
-	arch-arm/bionic/armv7/memset.S \
-	arch-arm/bionic/armv7/bzero.S
-else # No mem optimizations
-libc_common_src_files += \
-	arch-arm/bionic/memcpy.S \
-	arch-arm/bionic/memset.S
 endif
 
 else # !arm
