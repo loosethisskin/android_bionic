@@ -178,7 +178,6 @@ libc_common_src_files := \
 	stdlib/toupper_.c \
 	stdlib/wchar.c \
 	string/index.c \
-	string/memccpy.c \
 	string/memmem.c \
 	string/memrchr.c \
 	string/memswap.c \
@@ -340,6 +339,7 @@ libc_upstream_netbsd_src_files := \
 	upstream-netbsd/libc/stdlib/tdelete.c \
 	upstream-netbsd/libc/stdlib/tfind.c \
 	upstream-netbsd/libc/stdlib/tsearch.c \
+	upstream-netbsd/libc/string/memccpy.c \
 	upstream-netbsd/libc/string/strxfrm.c \
 
 # The following files are common, but must be compiled
