@@ -70,6 +70,13 @@ libc_common_src_files := \
     stdlib/atexit.c \
     unistd/syslog.c \
 
+# cortex-a9 without neon
+ifneq ($(TARGET_CPU_VARIANT),tegra2)
+    libc_common_src_files += \
+        bionic/memchr.c \
+
+endif
+
 # Fortify implementations of libc functions.
 libc_common_src_files += \
     bionic/__FD_chk.cpp \
